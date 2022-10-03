@@ -1,0 +1,13 @@
+{
+  "name": "idenovia",
+  "version": "1.0.0",
+  "description": "Exercice CSS",
+  "main": "",
+  "scripts": {
+    "sass": "sass --watch ./css/style.scss",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./prefixed/"
+  },
+  "keywords": [],
+  "author": "Abdulkadir GUVEN <abguven@gmail.com>",
+  "license": "ISC"
+}

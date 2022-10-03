@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box; }
+
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent; }
+
+html,
+body {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  place-items: center;
+  background: linear-gradient(315deg, #ffffff, #d7e1ec); }
+
+.card-box {
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+  @media screen and (min-width: 450px) {
+    .card-box {
+      width: 80%; } }
+
+.message {
+  color: #121212; }
+  .message-content-wrapper {
+    background-color: #eee; }
+
+.white {
+  background-color: #fff; }
+
+.message-header {
+  padding: 5px; }
+
+.actions_parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #d7e1ec; }
+
+.btn-icon {
+  font-size: 0.8rem;
+  display: inline-block;
+  margin: 5px 2px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #007EA8;
+  background-color: #007EA8;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer; }
+  @media screen and (min-width: 450px) {
+    .btn-icon {
+      flex: 1 24%; } }
+  @media screen and (max-width: 449px) {
+    .btn-icon {
+      flex: 1 48%; } }
+
+.action-state::after {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  white-space: pre; }
+
+.state-read {
+  border: 2px solid #007EA8;
+  background-color: #E7E7E7;
+  color: #007EA8; }
+  .state-read::after {
+    content: "  \f2b6"; }
+
+.state-unread::after {
+  content: "  \f0e0"; }
+
+.state-done {
+  border: 2px solid #007EA8;
+  background-color: #E7E7E7;
+  color: #007EA8; }
+  .state-done::after {
+    content: "  \f058"; }
+
+.state-undone::after {
+  content: "  \f254"; }
+
+.make_answer form {
+  margin: 5px 0;
+  text-align: center; }
+.make_answer textarea.wide {
+  outline: none;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #d7e1ec;
+  resize: none;
+  overflow: auto;
+  height: 10ch;
+  width: 100%; }
+.make_answer input[type="submit"] {
+  display: inline-block;
+  margin: 5px 2px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #007EA8;
+  background-color: #007EA8;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer; }
+
+.message-content-header {
+  color: gray;
+  font-size: 0.8rem; }
+  .message-content-header span {
+    vertical-align: middle; }
+  .message-content-header .date {
+    display: inline-block;
+    color: #007EA8; }
+    @media screen and (max-width: 449px) {
+      .message-content-header .date {
+        font-size: 0.7rem; } }
+    .message-content-header .date.right {
+      width: 100%;
+      text-align: right;
+      padding-right: 10px; }
+
+.message-child, .message-parent {
+  margin: 5px; }
+
+.message-child .message-content-wrapper {
+  background-color: rgba(215, 225, 236, 0.5);
+  font-size: 0.8rem;
+  margin-left: 20px;
+  border-left: 5px solid #b4c7dc; }
+  .message-child .message-content-wrapper::before {
+    content: "\f4ad";
+    font-size: 1.1rem;
+    color: #b4c7dc;
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    margin-left: -1.5rem;
+    transform: scale(-1, 1); }
+
+.message-content-wrapper {
+  background-color: rgba(0, 126, 168, 0.2);
+  border-radius: 10px;
+  margin: 5px; }
+
+.message-content {
+  display: inline-block;
+  text-align: center;
+  padding: 1rem; }
+
+.message_img {
+  object-fit: contain;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border: 1px solid white;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3); }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+
+    <title>Messages</title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/main.js"></script>
+
+    <link rel="stylesheet" href="./prefixed/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//use.fontawesome.com/releases/v5.7.2/css/all.css"
+    />
+  </head>
+
+  <body>
+    <div class="card-box white message-box message-box-noread">
+      <!-- MESSAGE -->
+      <!-- Les messages s'affichent en fil de discution, le 1er message envoyé s'affichent tout en bas du fil -->
+      <div class="message">
+        <div class="action-infos-left">
+          <!-- Indique si le message a également été envoyé par email et/ou par SMS -->
+          <span
+            class="icon-message message-email"
+            tooltip="Envoyé par <strong>email</strong>"
+          ></span>
+          <span
+            class="icon-sms message-sms"
+            tooltip="Envoyé par <strong>SMS</strong>"
+          ></span>
+        </div>
+        <div class="messagechild">
+          <div class="message-header">
+            <h1 class="subject">
+              <span class="contact">Nom du patient</span>
+              -&nbsp; Titre du message
+            </h1>
+            <div class="message-actions">
+              <div class="actions_parent">
+                <!-- Message non lu, cliquer sur le bouton pour passer le message à lu : faire deux styles "non lu" et "lu" avec Jquery -->
+                <a
+                  href="#"
+                  onclick=""
+                  class="btn-icon action-state action-read"
+                  title=""
+                >
+                  Message non lu
+                </a>
+                <!-- Ce message est une tâche, cliquer sur le bouton pour passer la tâche à faire : faire deux styles "A faire" et "Fait" avec Jquery -->
+                <a
+                  href="#"
+                  onclick=""
+                  class="btn-icon action-state action-task"
+                  title=""
+                >
+                  A faire
+                </a>
+                <!-- Cliquer sur le bouton pour répondre au message -->
+                <a href="#" onclick="return answer(this)" class="btn-icon">
+                  Répondre au message
+                </a>
+                <!-- Cliquer sur le bouton pour supprimer le message -->
+                <a href="#" onclick="" class="btn-icon action-delete">
+                  Supprimer le message
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Le bloc de réponse devra s'afficher quand on clique sur le bouton "Répondre au message" -->
+          <div class="make_answer" style="display: none">
+            <form method="post" action="message_entity_add.html">
+              <textarea
+                spellcheck="true"
+                id="message_entity_add-message"
+                name="message"
+                class="wide"
+              ></textarea>
+              <div>
+                <input
+                  type="submit"
+                  id="messagesubmit"
+                  class=""
+                  onclick=""
+                  value="Valider"
+                />
+              </div>
+            </form>
+          </div>
+
+          <div class="message-child">
+            <!-- Message content header -->
+            <div class="message-content-header">
+              <span class="from">
+                <span class="message-content-customer-img">
+                  <img id="img_501342" class="message_img" src="./img/catherine.jpg" />
+                </span>
+                De CATHERINE
+              </span>
+              <span class="date" tooltip="Date de réponse">
+                -&nbsp;30/04/2022 à 09:35
+              </span>
+            </div>
+            <!-- Message content body -->
+            <div id="message_entity_5542" class="message-content-wrapper">
+              <span class="message-content">réponse</span>
+            </div>
+          </div>
+
+          <div class="message-child">
+            <!-- Message content header -->
+            <div class="message-content-header">
+              <span class="from">
+                <span class="message-content-customer-img">
+                  <img id="img_501342" class="message_img" src="./img/cecile.jpg" />
+                </span>
+                De Dr. LEMOINE Cécile
+              </span>
+              <span class="date" tooltip="Date de réponse">
+                -&nbsp;05/05/2022 à 16:57
+              </span>
+            </div>
+            <!-- Message content body -->
+            <div id="message_entity_5497" class="message-content-wrapper">
+              <span class="message-content">réponse</span>
+            </div>
+          </div>
+
+          <div class="message-parent">
+            <!-- Message content header -->
+            <div class="message-content-header">
+              <span class="from">
+                <span class="message-content-customer-img">
+                  <img id="img_501342" class="message_img" src="./img/catherine.jpg" />
+                </span>
+                De <strong>CATHERINE</strong> Pour
+                <strong>Dr. LEMOINE Cécile</strong>
+              </span>
+              <span class="date right" tooltip="Date d'émission">
+                27/04/2022 à 16:13
+              </span>
+            </div>
+            <!-- Message content body -->
+            <div
+              id="message_entity_5464"
+              class="message message-content-wrapper"
+            >
+              <span class="message-content">
+                Bonjour
+                <br />
+                <br />Vous avez reçu un nouveau message de la part de votre
+                secrétariat.
+                <br />
+                <br />Cordialement <br />Votre secrétaire
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="message">
+        <div class="action-infos-left">
+          <span
+            class="icon-message message-email"
+            tooltip="Envoyé par <strong>email</strong>"
+          ></span>
+          <span
+            class="icon-sms message-sms"
+            tooltip="Envoyé par <strong>SMS</strong>"
+          ></span>
+        </div>
+        <div class="messagechild">
+          <div class="message-header">
+            <h1 class="subject">
+              <span class="contact">Nom du patient</span>
+              -&nbsp; Titre du message
+            </h1>
+            <div class="message-actions">
+              <div class="actions_parent">
+                <!-- Message non lu, cliquer sur le bouton pour passer le message à lu -->
+                <a
+                  href="#"
+                  onclick=""
+                  class="btn-icon action-state action-read"
+                  title=""
+                >
+                  Message non lu
+                </a>
+                <!-- Ce message est une tâche, cliquer sur le bouton pour passer la tâche à faire -->
+                <a
+                  href="#"
+                  onclick=""
+                  class="btn-icon action-state action-task"
+                  title=""
+                >
+                  A faire
+                </a>
+                <!-- Cliquer sur le bouton pour répondre au message -->
+                <a href="#" onclick="return answer(this)" class="btn-icon">
+                  Répondre au message
+                </a>
+                <!-- Cliquer sur le bouton pour supprimer le message -->
+                <a href="#" onclick="" class="btn-icon action-delete">
+                  Supprimer le message
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Le bloc de réponse devra s'afficher quand on clique sur le bouton "Répondre au message" -->
+          <div class="make_answer" style="display: none">
+            <form method="post" action="message_entity_add.html">
+              <textarea
+                spellcheck="true"
+                id="message_entity_add-message"
+                name="message"
+                class="wide"
+              ></textarea>
+              <div>
+                <input
+                  type="submit"
+                  id="messagesubmit"
+                  class=""
+                  onclick=""
+                  value="Valider"
+                />
+              </div>
+            </form>
+          </div>
+
+          <div class="message-child">
+            <!-- Message content header -->
+            <div class="message-content-header">
+              <span class="from">
+                <span class="message-content-customer-img">
+                  <img id="img_501342" class="message_img" src="" />
+                </span>
+                De CATHERINE
+              </span>
+              <span class="date" tooltip="Date de réponse">
+                -&nbsp;30/05/2022 à 09:35
+              </span>
+            </div>
+            <!-- Message content body -->
+            <div id="message_entity_5542" class="message-content-wrapper">
+              <span class="message-content">réponse</span>
+            </div>
+          </div>
+
+          <div class="message-child">
+            <!-- Message content header -->
+            <div class="message-content-header">
+              <span class="from">
+                <span class="message-content-customer-img">
+                  <img id="img_501342" class="message_img" src="" />
+                </span>
+                De Dr. LEMOINE Cécile
+              </span>
+              <span class="date" tooltip="Date de réponse">
+                -&nbsp;05/05/2022 à 16:57
+              </span>
+            </div>
+            <!-- Message content body -->
+            <div id="message_entity_5497" class="message-content-wrapper">
+              <span class="message-content">réponse</span>
+            </div>
+          </div>
+
+          <div class="message-parent">
+            <!-- Message content header -->
+            <div class="message-content-header">
+              <span class="from">
+                <span class="message-content-customer-img">
+                  <img id="img_501342" class="message_img" src="" />
+                </span>
+                De <strong>CATHERINE</strong> Pour
+                <strong>Dr. LEMOINE Cécile</strong>
+              </span>
+              <span class="date right" tooltip="Date d'émission">
+                27/04/2021 à 16:13
+              </span>
+            </div>
+            <!-- Message content body -->
+            <div
+              id="message_entity_5464"
+              class="message message-content-wrapper"
+            >
+              <span class="message-content">
+                Bonjour
+                <br />
+                <br />Vous avez reçu un nouveau message de la part de votre
+                secrétariat.
+                <br />
+                <br />Cordialement <br />Votre secrétaire
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="message">
+        <div class="action-infos-left">
+          <span
+            class="icon-message message-email"
+            tooltip="Envoyé par <strong>email</strong>"
+          ></span>
+          <span
+            class="icon-sms message-sms"
+            tooltip="Envoyé par <strong>SMS</strong>"
+          ></span>
+        </div>
+        <div class="messagechild">
+          <div class="message-header">
+            <h1 class="subject">
+              <span class="contact">Nom du patient</span>
+              -&nbsp; Titre du message
+            </h1>
+            <div class="message-actions">
+              <div class="actions_parent">
+                <!-- Message non lu, cliquer sur le bouton pour passer le message à lu -->
+                <a
+                  href="#"
+                  onclick=""
+                  class="btn-icon action-state action-read"
+                  title=""
+                >
+                  Message non lu
+                </a>
+                <!-- Ce message est une tâche, cliquer sur le bouton pour passer la tâche à faire -->
+                <a
+                  href="#"
+                  onclick=""
+                  class="btn-icon action-state action-task"
+                  title=""
+                >
+                  A faire
+                </a>
+                <!-- Cliquer sur le bouton pour répondre au message -->
+                <a href="#" onclick="return answer(this)" class="btn-icon">
+                  Répondre au message
+                </a>
+                <!-- Cliquer sur le bouton pour supprimer le message -->
+                <a href="#" onclick="" class="btn-icon action-delete">
+                  Supprimer le message
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Le bloc de réponse devra s'afficher quand on clique sur le bouton "Répondre au message" -->
+          <div class="make_answer" style="display: none">
+            <form method="post" action="message_entity_add.html">
+              <textarea
+                spellcheck="true"
+                id="message_entity_add-message"
+                name="message"
+                class="wide"
+              ></textarea>
+              <div>
+                <input
+                  type="submit"
+                  id="messagesubmit"
+                  class=""
+                  onclick=""
+                  value="Valider"
+                />
+              </div>
+            </form>
+          </div>
+
+          <div class="message-child">
+            <!-- Message content header -->
+            <div class="message-content-header">
+              <span class="from">
+                <span class="message-content-customer-img">
+                  <img id="img_501342" class="message_img" src="" />
+                </span>
+                De CATHERINE
+              </span>
+              <span class="date" tooltip="Date de réponse">
+                -&nbsp;30/05/2022 à 09:35
+              </span>
+            </div>
+            <!-- Message content body -->
+            <div id="message_entity_5542" class="message-content-wrapper">
+              <span class="message-content">réponse</span>
+            </div>
+          </div>
+
+          <div class="message-child">
+            <!-- Message content header -->
+            <div class="message-content-header">
+              <span class="from">
+                <span class="message-content-customer-img">
+                  <img id="img_501342" class="message_img" src="" />
+                </span>
+                De Dr. LEMOINE Cécile
+              </span>
+              <span class="date" tooltip="Date de réponse">
+                -&nbsp;05/05/2022 à 16:57
+              </span>
+            </div>
+            <!-- Message content body -->
+            <div id="message_entity_5497" class="message-content-wrapper">
+              <span class="message-content">réponse</span>
+            </div>
+          </div>
+
+          <div class="message-parent">
+            <!-- Message content header -->
+            <div class="message-content-header">
+              <span class="from">
+                <span class="message-content-customer-img">
+                  <img id="img_501342" class="message_img" src="" />
+                </span>
+                De <strong>CATHERINE</strong> Pour
+                <strong>Dr. LEMOINE Cécile</strong>
+              </span>
+              <span class="date right" tooltip="Date d'émission">
+                27/04/2020 à 16:13
+              </span>
+            </div>
+            <!-- Message content body -->
+            <div
+              id="message_entity_5464"
+              class="message message-content-wrapper"
+            >
+              <span class="message-content">
+                Bonjour
+                <br />
+                <br />Vous avez reçu un nouveau message de la part de votre
+                secrétariat.
+                <br />
+                <br />Cordialement <br />Votre secrétaire
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
